@@ -1,14 +1,16 @@
 var scoreboard = document.getElementById("score").innerHTML;
-var lastwordboard = document.getElementById("lastword").innerHTML;
+var lastwordboard = document.getElementById("lastword");
 var countdownboard = document.getElementById("timer").innerHTML;
-var nextwordboard = document.getElementById("nextword").value;
+var nextwordboard = document.getElementById("nextword");
 
 
 
 function checkAnswer() {
-	var answer = nextwordboard;
-	if (answer != '')
-		checkIfExists(answer);
+	var answer = nextwordboard.value;
+	if (answer != ''
+		&& checkIfExists(answer) ) {
+		lastwordboard.innerHTML = answer;
+	}
 
 	return false;
 }
@@ -26,4 +28,5 @@ function checkIfExists(answer) {
 		return false;
 	});
 	console.log(json);
+	return true;
 }
