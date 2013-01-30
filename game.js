@@ -1,12 +1,14 @@
 var scoreboard = document.getElementById("score").innerHTML;
-var lastwordboard = document.getElementById("lastword").innerHTML;
+var lastwordboard = document.getElementById("lastword");
 var countdownboard = document.getElementById("timer").innerHTML;
-var nextwordboard = document.getElementById("nextword").value;
+var nextwordboard = document.getElementById("nextword");
 
 
 
 function checkAnswer() {
-	var answer = nextwordboard;
+	var answer = nextwordboard.value;
+	console.log(answer);
+	lastwordboard.innerHTML = answer;
 	return false;
 }
 
