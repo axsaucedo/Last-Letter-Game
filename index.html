@@ -1,26 +1,31 @@
 <!DOCTYPE HTML>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta charset="UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div id="scoreboard">
-		<div id="score">
+	<header>
+		<div class="scoreboard">
+			Score: <span id="score">0000</span>
 		</div>
+	</header>
+	<div id="lastword">Word
 	</div>
-	<div id="lastword">
+	<div id="timer">10
 	</div>
-	<div id="timer">
-	</div>
-	<div id="nextwordpanel">
-		<div id="nextword">
-			<div id="firstletter">
-			</div>
-			<div id="restofword">
-			</div>
+	<form id="nextwordpanel">
+<!--		<div id="nextword">
+			<span id="firstletter">
+			</span>
+			<span id="restofword">
+			</span>
 		</div>
-		<div id="tryword">
-		</div>
-	</div>
+-->
+		<input type="text" id="nextword" />
+		<input type="submit" value="try" id="tryword" />
+	</form>
+	<script type="text/javascript" src="game.js"></script>
 </body>
 </html>
