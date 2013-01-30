@@ -13,9 +13,7 @@ function checkAnswer() {
 
 
 function checkIfExists() {
-	var letter = "a"
-	var json = $.getJSON(letter + ".json", function(json) {
-		return json[0];
-	}
-	alert(a);
+	var json = $.getJSON("a.json", function(data) {
+		console.log("yes")
+	});
 }
