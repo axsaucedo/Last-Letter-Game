@@ -5,11 +5,33 @@ body {
 	color:#777;
 }
 
+.scoreboard {
+	margin:0.6em;
+	padding:0.4em;
+	color:#fff;
+	-moz-box-shadow:0 0 10px #303030;
+	-webkit-box-shadow:0 0 10px #303030;
+	-o-box-shadow:0 0 10px #303030;
+	box-shadow:0 0 10px #303030;
+	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF696969', endColorstr='#FF252525');
+	background:#252525;
+	background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #696969), color-stop(95%, #363636), color-stop(97%, #313131), color-stop(100%, #252525));
+	background-image:-webkit-linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%);
+	background-image:-moz-linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%);
+	background-image:-o-linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%);
+	background-image:linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%)
+}
+
+#score {
+	font-weight:bold;
+} 
+
 #lastword {
 	color:#080;
 	text-align:center;
 	font-family: serif;
 	font-size: 400%;
+	font-weight: normal;
 	margin:0 0;
 }
 
