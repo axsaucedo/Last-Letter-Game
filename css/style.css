@@ -60,11 +60,9 @@ body {
 }
 
 #nextword {
-	font-size: 150%
-}
-
-#trybutton {
-	font-size: 100%
+	font-size: 150%;
+	text-align: right;
+	width: 8em;
 }
 
 @media print, screen and (max-width: 640px) {
