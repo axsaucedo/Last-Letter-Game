@@ -7,26 +7,29 @@
 	<script lang="text/javascript" src="jquery/jquery.js"></script>
 </head>
 <body>
-	<header>
-		<div class="scoreboard">
-			Score: <span id="score">0000</span>
+	<div data-role="page" id="playgame">
+		<header>
+			<div class="scoreboard">
+				Score: <span id="score">0000</span>
+			</div>
+		</header>
+		<h1 id="lastword">Word
+		</h1>
+		<div id="timer">10
 		</div>
-	</header>
-	<h1 id="lastword">Word
-	</h1>
-	<div id="timer">10
-	</div>
-	<form id="nextwordpanel" onsubmit="checkAnswer();">
-<!--		<div id="nextword">
-			<span id="firstletter">
-			</span>
-			<span id="restofword">
-			</span>
-		</div>
+		<form id="nextwordpanel" onsubmit="checkAnswer();">
+<!--
+			<div id="nextword">
+				<span id="firstletter">
+				</span>
+				<span id="restofword">
+				</span>
+			</div>
 -->
-		<input type="text" id="nextword" />
-		<input type="submit" value="try" id="tryword" />
-	</form>
-	<script type="text/javascript" src="game.js"></script>
+			<input type="text" maxlength="15" autocomplete="off" spellcheck="off" autofocus="autofocus" id="nextword" />
+			<input type="submit" value="try" id="tryword" />
+		</form>
+		<script type="text/javascript" src="game.js"></script>
+	</div>
 </body>
 </html>
