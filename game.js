@@ -11,7 +11,7 @@ function reset() {
 	lastwordboard.innerHTML = lastword;
 	sentence += " " + lastword;
 	console.log(sentence);
-	nextwordboard.value = lastword.substr(lastword.length, lastword.length);
+	nextwordboard.value = lastword.substr(lastword.length - 1, lastword.length);
 	timer = 10;
 	countdownboard.innerHTML = String(timer);
 }
