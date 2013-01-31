@@ -9,7 +9,7 @@ var timer = 10;
 var timeout = null;
 
 function youlose(){
-
+	nextwordboard.disabled = true;
 }
 
 function countdown() {
