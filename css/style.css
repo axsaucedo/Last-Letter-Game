@@ -65,6 +65,10 @@ body {
 	width: 8em;
 }
 
+#gameover {
+	text-align: center;
+}
+
 @media print, screen and (max-width: 640px) {
 	#lastword {
 		font-size: 200%;
