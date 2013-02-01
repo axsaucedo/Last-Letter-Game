@@ -16,7 +16,7 @@ body {
 
 @media print, screen and (min-width: 680px) {
 	#playgame {
-		width: 595px;
+		width: 100%;
 		margin: 0 auto;
 	}
 }
@@ -40,6 +40,14 @@ body {
 	background-image:linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%)
 }
 
+.scoreboard span {
+	display: inline-block;
+}
+
+#spacer {
+	width: 10%;
+}
+
 #score {
 	font-weight:bold;
 } 
@@ -48,7 +56,7 @@ body {
 	color:#080;
 	text-align:center;
 	font-family: serif;
-	font-size: 300%;
+	font-size: 3em;
 	font-weight: normal;
 	margin:0 0;
 }
@@ -92,7 +100,7 @@ body {
 	width: 50%;
 }
 
-#tryword {
+#playagain, #tryword {
 	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
 	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
 	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
@@ -113,6 +121,10 @@ body {
 	width: 50px;
 	text-decoration:none;
 	text-shadow:1px 1px 0px #528ecc;
+}
+
+#playagain {
+	width: 100px;
 }
 
 #gameover {

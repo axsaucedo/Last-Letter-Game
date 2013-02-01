@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<meta charset="UTF-8">
+	<link rel="stylesheet" type="text/css" href="css/game.css">
+	<script lang="text/javascript" src="jquery/jquery.js"></script>
+</head>
+<body>
+	<div data-role="page" id="playgame">
+		<header>
+			<div class="scoreboard">
+				<span> Score: </span> 
+				<span id="score">0</span>
+				<span id="spacer"> </span>
+				<span> Combo: </span> 
+				<span id="combo">0 </span> 
+			</div>
+		</header>
+
+		<div data-role="content" id="playing">
+			<div id="lastword">  
+			</div>
+			<div id="middlepanel" align="right">
+				<span id="error"> 
+					ERROR
+				</span>
+				<span id="timer">
+					10
+				</span>
+			</div>
+			<form action="#" id="nextwordpanel" onsubmit="checkAnswer(); return false;">
+
+				<input id="firstletter" type="text" disabled="disabled"/>
+				<input type="text" maxlength="16" autocomplete="off" spellcheck="off" autofocus="autofocus" id="nextword" />
+				<input type="submit" value="try" id="tryword" />
+			</form>
+		</div>
+		<div data-role="content" id="gameover" style="display:none">
+			</h3 id="finishedsentence">Game over</h3>
+			<p><button id="playagain" onclick="playAgain();">Play again</button></p>
+		<script>function fbs_click() {u=location.href;t=document.title;window.open('http://www.facebook.com/sharer.php?u='+encodeURIComponent(u)+'&t='+encodeURIComponent(t),'sharer','toolbar=0,status=0,width=626,height=436');return false;}</script>
+			<style> 
+
+				html .fb_share_button { color:#fff; border-color:#295582; background:#3b5998; text-decoration:none; } 
+			</style> 
+			<div id="sharefacebook">
+				<a rel="nofollow" href="http://www.facebook.com/share.php?u=<;url>" class="fb_share_button" onclick="return fbs_click()" target="_blank" style="text-decoration:none;">
+					Share with facebook
+				<img src="http://www.usphs.gov/images/home/facebook-logo.png" width="40px"/></a>
+			</div>
+		</div>
+	</div>
+	<script type="text/javascript" src="game.js"></script>
+</body>
+</html>

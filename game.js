@@ -4,23 +4,39 @@ var countdownboard = document.getElementById("timer");
 var nextwordboard = document.getElementById("nextword");
 var firstletterboard = document.getElementById("firstletter");
 var errorboard = document.getElementById("error");
+var comboboard = document.getElementById("combo");
 var TimeToFade = 1000.0;
 var gameover = document.getElementById("gameover");
 var finishedsentence = document.getElementById("finishedsentence");
 var playing = document.getElementById("playing");
-var lastword = "Last";
+var tryagainbutton = document.getElementById("tryword");
 var sentence = [];
 var score = 0;
 var timer = 10;
 var timeout = null;
+var lastword = null;
+var pointsCombo = 1;
 var aDict;
+var combo = 0;
 $.getJSON("letters/aDict.json", function(data){
 	aDict = data;
+	lastword = data[Math.floor(Math.random() * data.length)];
+	reset();
 });
+
+function playAgain() {
+	lastword = aDict[Math.floor(Math.random() * aDict.length)];
+	combo = 0;
+	score = 0;
+	sentence = [];
+	comboboard.innerHTML = 0;
+	scoreboard.innerHTML = 0;
+	reset();
+}
 
 function youlose(){
 	nextwordboard.disabled = true;
-//	finishedsentence.innerHTML = sentence;
+	nextwordboard.value = "";
 	timeout = setTimeout('gameover.style.display = "block";', 500);
 }
 
@@ -32,6 +48,7 @@ function countdown() {
 	else
 		timeout = setTimeout('countdown()', 1000);
 }
+
 
 function reset() {
 	clearTimeout(timeout);
@@ -48,17 +65,21 @@ function reset() {
 }
 
 function pointsscored () {
-	return timer;
+	return timer * pointsCombo;
 }
 
 function checkAnswer() {
 	var answer = (firstletterboard.value + nextwordboard.value).toLowerCase();
 
+	if (answer == "")
+		return;
+
 	if (notAlready(answer)) {
-		if (answer != '' && checkIfCorrect(answer) ) {
+		if (checkIfCorrect(answer) ) {
+			positiveScore();
+
 			lastword = answer;
-			score += pointsscored();
-			scoreboard.innerHTML = String(score);
+
 			reset();
 		}
 		else {
@@ -70,7 +91,39 @@ function checkAnswer() {
 	}
 }
 
+function positiveScore() {
+	combo++;
+	var extra = "";
+
+	if (combo > 5){
+		if (combo > 30){
+			if (combo > 200) {
+				extra = "  x4";
+				pointsCombo = 4;
+			}
+			else {
+				extra = "  x3";
+				pointsCombo = 3;
+			}
+		}
+		else {
+			extra = "  x2";
+			pointsCombo = 2;
+		}
+	}
+
+	score += pointsscored();
+
+	scoreboard.innerHTML = String(score);
+
+	comboboard.innerHTML = combo + extra;
+}
+
 function error(type){
+	combo = 0;
+	pointsCombo = 1;
+	comboboard.innerHTML = 0;
+
 	switch (type)
 	{
 		case 1:
@@ -145,4 +198,4 @@ function checkIfCorrect(answer) {
 	return (aDict.indexOf(answer) > 0);
 }
 
-reset();
+

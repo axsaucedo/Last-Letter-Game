@@ -1,0 +1,75 @@
+body {
+	font-family:sans-serif;
+	font-size:200%;
+	color:#777;
+	background-color: #dfc;
+	text-align: center;
+}
+
+#playgame {
+	background-color: #eee;
+	overflow: visible;
+	border-radius:1em;
+	border:1px solid #ddd;
+	padding:1em;
+	box-shadow:inset #fff 0 3px 0, inset rgba(0,0,0,0.03) 0 -3px 0;
+}
+
+@media print, screen and (min-width: 680px) {
+	#playgame {
+		width: 100%;
+		margin: 0 auto;
+	}
+}
+
+#title {
+	margin:0.6em;
+	padding:0.4em;
+	color:#fff;
+	text-align: center;
+	-moz-box-shadow:0 0 10px #303030;
+	-webkit-box-shadow:0 0 10px #303030;
+	-o-box-shadow:0 0 10px #303030;
+	box-shadow:0 0 10px #303030;
+	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF696969', endColorstr='#FF252525');
+	background:#252525;
+	border-radius: 15px;
+	background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #696969), color-stop(95%, #363636), color-stop(97%, #313131), color-stop(100%, #252525));
+	background-image:-webkit-linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%);
+	background-image:-moz-linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%);
+	background-image:-o-linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%);
+	background-image:linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%)
+}
+
+#start {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
+	background-color:#79bbff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	color:#ffffff;
+	font-family:arial;
+	font-size:20px;
+	font-weight:bold;
+	height:50px;
+	width: 110px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
+}
+
+#title {
+	font-size: 1em;
+}
+
+#cont {
+	color: black;
+	font-size: 20px;
+}
+
+

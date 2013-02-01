@@ -3,40 +3,26 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1"> 
 	<meta charset="UTF-8">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	<script lang="text/javascript" src="jquery/jquery.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/home.css">
 </head>
 <body>
 	<div data-role="page" id="playgame">
-		<header>
-			<div class="scoreboard">
-				Score: <span id="score">0000</span>
-			</div>
-		</header>
-
-		<div data-role="content" id="playing">
-			<h1 id="lastword">Word
-			</h1>
-			<div id="middlepanel" align="right">
-				<span id="error" onload="fade()"> 
-					ERROR
-				</span>
-				<span id="timer">
-					10
-				</span>
-			</div>
-			<form action="#" id="nextwordpanel" onsubmit="checkAnswer();">
-
-				<input id="firstletter" type="text" disabled="disabled"/>
-				<input type="text" maxlength="16" autocomplete="off" spellcheck="off" autofocus="autofocus" id="nextword" />
-				<input type="submit" value="try" id="tryword" />
-			</form>
+		<div id="title">
+			Last Letter Game
 		</div>
-		<div data-role="content" id="gameover" style="display:none">
-			</h3 id="finishedsentence">Game over</h3>
-			<p><button onclick="reset();">Play again</button></p>
+		<div id="instructions">
+			Instructions		
+		</div>
+		<div id="cont">
+			<p>
+				This game is exactly like the traditional "Last Letter Game", where
+				you have to come up with a word which starts with the last 
+				letter of the previous word. Click the start button below to
+				play the best game in the internet!
+			</p>
+		</div>
+		<p><button id="start" onclick="window.location.href='game.html?#'">Start</button></p>
 		</div>
 	</div>
-	<script type="text/javascript" src="game.js"></script>
 </body>
 </html>
