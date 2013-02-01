@@ -6,10 +6,14 @@ var gameover = document.getElementById("gameover");
 var finishedsentence = document.getElementById("finishedsentence");
 var playing = document.getElementById("playing");
 var lastword = "Last";
-var sentence = "";
+var sentence = [];
 var score = 0;
 var timer = 10;
 var timeout = null;
+var aDict;
+$.getJSON("letters/aDict.json", function(data){
+	aDict = data;
+});
 
 function youlose(){
 	nextwordboard.disabled = true;
@@ -29,7 +33,7 @@ function countdown() {
 function reset() {
 	clearTimeout(timeout);
 	lastwordboard.innerHTML = lastword;
-	sentence += " " + lastword;
+	sentence.push(lastword);
 	console.log(sentence);
 	nextwordboard.value = lastword.substr(lastword.length - 1, lastword.length);
 	timer = 10;
@@ -46,31 +50,42 @@ function pointsscored () {
 
 function checkAnswer() {
 	var answer = nextwordboard.value;
-	if (answer != ''
-		&& checkIfExists(answer) ) {
-		lastword = answer;
-		score += pointsscored();
-		scoreboard.innerHTML = String(score);
-		reset();
-	}
 
-	return false;
+	if (notAlready(answer)) {
+		if (answer != '' && checkIfCorrect(answer) ) {
+			lastword = answer;
+			score += pointsscored();
+			scoreboard.innerHTML = String(score);
+			reset();
+		}
+		else {
+			error(1);
+		}
+	}
+	else{
+		error(2); //answer does not exist in dictionary
+	}
+}
+
+function error(type){
+	switch (type)
+	{
+		case 1:
+			alert("Word is not recognized");
+			break;
+		case 2:
+			alert("Word already used");
+	}
+}
+
+function notAlready(answer) {
+	return (sentence.indexOf(answer) <= 0);
 }
 
 
 
-function checkIfExists(answer) {
-	var exists = false;
-	console.log("inside");
-	var json = $.getJSON("letters/a.json", function(data) {
-		for(var i = 0; i < data.length; i++)
-			if (data[i] === $.trim(answer))
-				return true;
-
-		return false;
-	});
-	console.log(json);
-	return true;
+function checkIfCorrect(answer) {
+	return (aDict.indexOf(answer) > 0);
 }
 
 reset();
