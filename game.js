@@ -30,6 +30,7 @@ function reset() {
 	timer = 10;
 	countdownboard.innerHTML = String(timer);
 	timeout = setTimeout('countdown()', 1000);
+	nextwordboard.disabled = false;
 }
 
 function pointsscored () {

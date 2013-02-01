@@ -13,23 +13,30 @@
 				Score: <span id="score">0000</span>
 			</div>
 		</header>
-		<h1 id="lastword">Word
-		</h1>
-		<div id="timer">10
-		</div>
-		<form id="nextwordpanel" onsubmit="checkAnswer();">
-<!--
-			<div id="nextword">
-				<span id="firstletter">
-				</span>
-				<span id="restofword">
-				</span>
+		<div data-role="content" id="playing">
+			<h1 id="lastword">Word
+			</h1>
+			<div id="timer">10
 			</div>
--->
-			<input type="text" maxlength="16" autocomplete="off" spellcheck="off" autofocus="autofocus" id="nextword" />
-			<input type="submit" value="try" id="tryword" />
-		</form>
-		<script type="text/javascript" src="game.js"></script>
+			<form id="nextwordpanel" onsubmit="checkAnswer();">
+	<!--
+				<div id="nextword">
+					<span id="firstletter">
+					</span>
+					<span id="restofword">
+					</span>
+				</div>
+	-->
+				<input type="text" maxlength="16" pattern="\w{2,16}" autocomplete="off" spellcheck="off"
+					autofocus="autofocus" id="nextword" />
+				<input type="submit" value="try" id="tryword" />
+			</form>
+		</div>
+		<div data-role="content" id="gameover" style="display:none">
+			</h3 id="finishedsentence">Game over</h3>
+			<p><a href="javascript:reset();">Play again</a></p>
+		</div>
 	</div>
+	<script type="text/javascript" src="game.js"></script>
 </body>
 </html>
