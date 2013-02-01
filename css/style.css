@@ -7,6 +7,7 @@ body {
 
 #playgame {
 	background-color: #eee;
+	overflow: visible;
 	border-radius:1em;
 	border:1px solid #ddd;
 	padding:1em;
@@ -24,12 +25,14 @@ body {
 	margin:0.6em;
 	padding:0.4em;
 	color:#fff;
+	text-align: center;
 	-moz-box-shadow:0 0 10px #303030;
 	-webkit-box-shadow:0 0 10px #303030;
 	-o-box-shadow:0 0 10px #303030;
 	box-shadow:0 0 10px #303030;
 	filter:progid:DXImageTransform.Microsoft.gradient(gradientType=0, startColorstr='#FF696969', endColorstr='#FF252525');
 	background:#252525;
+	border-radius: 15px;
 	background-image:-webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #696969), color-stop(95%, #363636), color-stop(97%, #313131), color-stop(100%, #252525));
 	background-image:-webkit-linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%);
 	background-image:-moz-linear-gradient(top, #696969 0%,#363636 95%,#313131 97%,#252525 100%);
@@ -50,7 +53,20 @@ body {
 	margin:0 0;
 }
 
+#middlepanel span {
+	display: inline-block;
+}
+
+#error {
+	float:center;
+	opacity: 0;
+	text-align: center;
+	color:#800;
+	width:80%;
+}
+
 #timer {
+	width:15%;
 	text-align:right;
 	color:#800;
 }
@@ -59,10 +75,44 @@ body {
 	text-align: center;
 }
 
+#firstletter {
+	font-size: 150%;
+	color:#080;
+	text-align: center;
+	width: 1em;
+	/*
+	background-color: transparent;
+	border-style: none;
+	*/
+}
+
 #nextword {
 	font-size: 150%;
-	text-align: right;
-	width: 8em;
+	text-align: left;
+	width: 50%;
+}
+
+#tryword {
+	-moz-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	-webkit-box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	box-shadow:inset 0px 1px 0px 0px #bbdaf7;
+	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #79bbff), color-stop(1, #378de5) );
+	background:-moz-linear-gradient( center top, #79bbff 5%, #378de5 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#79bbff', endColorstr='#378de5');
+	background-color:#79bbff;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	border:1px solid #84bbf3;
+	display:inline-block;
+	color:#ffffff;
+	font-family:arial;
+	font-size:15px;
+	font-weight:bold;
+	height:40px;
+	width: 50px;
+	text-decoration:none;
+	text-shadow:1px 1px 0px #528ecc;
 }
 
 @media print, screen and (max-width: 640px) {

@@ -15,20 +15,29 @@
 		</header>
 		<h1 id="lastword">Word
 		</h1>
-		<div id="timer">10
+		<div id="middlepanel" align="right">
+			<span id="error" onload="fade()"> 
+				ERROR
+			</span>
+			<span id="timer">
+				10
+			</span>
 		</div>
-		<form id="nextwordpanel" onsubmit="checkAnswer(); return false;">
-<!--
-			<div id="nextword">
-				<span id="firstletter">
-				</span>
-				<span id="restofword">
-				</span>
-			</div>
--->
-			<input type="text" maxlength="16" autocomplete="off" spellcheck="off" autofocus="autofocus" id="nextword" />
-			<input type="submit" value="try" id="tryword" />
-		</form>
+		<div>
+			<form id="nextwordpanel" onsubmit="checkAnswer(); return false;">
+	<!--
+				<div id="nextword">
+					<span id="firstletter">
+					</span>
+					<span id="restofword">
+					</span>
+				</div>
+	-->
+				<input id="firstletter" type="text" disabled="disabled"/>
+				<input type="text" maxlength="16" autocomplete="off" spellcheck="off" autofocus="autofocus" id="nextword" />
+				<input type="submit" value="try" id="tryword" />
+			</form>
+		</div>
 		<script type="text/javascript" src="game.js"></script>
 	</div>
 </body>

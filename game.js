@@ -2,6 +2,9 @@ var scoreboard = document.getElementById("score");
 var lastwordboard = document.getElementById("lastword");
 var countdownboard = document.getElementById("timer");
 var nextwordboard = document.getElementById("nextword");
+var firstletterboard = document.getElementById("firstletter");
+var errorboard = document.getElementById("error");
+var TimeToFade = 1000.0;
 var lastword = "Last";
 var sentence = [];
 var score = 0;
@@ -29,8 +32,8 @@ function reset() {
 	clearTimeout(timeout);
 	lastwordboard.innerHTML = lastword;
 	sentence.push(lastword);
-	console.log(sentence);
-	nextwordboard.value = lastword.substr(lastword.length - 1, lastword.length);
+	firstletterboard.value = lastword.substr(lastword.length - 1, lastword.length).toUpperCase();
+	nextwordboard.value = "";
 	timer = 10;
 	countdownboard.innerHTML = String(timer);
 	timeout = setTimeout('countdown()', 1000);
@@ -41,7 +44,7 @@ function pointsscored () {
 }
 
 function checkAnswer() {
-	var answer = nextwordboard.value;
+	var answer = (firstletterboard.value + nextwordboard.value).toLowerCase();
 
 	if (notAlready(answer)) {
 		if (answer != '' && checkIfCorrect(answer) ) {
@@ -63,11 +66,65 @@ function error(type){
 	switch (type)
 	{
 		case 1:
-			alert("Word is not recognized");
+			displayError("Word is not recognized");
 			break;
 		case 2:
-			alert("Word already used");
+			displayError("Word already used");
 	}
+}
+
+function displayError(message){
+	errorboard.innerHTML = message;
+	errorboard.style.FadeState = null;
+	errorboard.style.opacity = 1;
+	setTimeout(fade(), 1000);
+}
+
+function fade(){
+
+	if (errorboard.FadeState == null
+		|| errorboard.style.opacity == ''
+		|| errorboard.style.opacity == '1') {
+		errorboard.FadeState = 2;
+	}
+	else errorboard.FadeState = -2;
+
+	if(errorboard.FadeState == 1 || errorboard.FadeState == -1)
+	{
+		errorboard.FadeState = errorboard.FadeState == 1 ? -1 : 1;
+		errorboard.FadeTimeLeft = TimeToFade - errorboard.FadeTimeLeft;
+	}
+	else
+	{
+		errorboard.FadeState = errorboard.FadeState == 2 ? -1 : 1;
+		errorboard.FadeTimeLeft = TimeToFade;
+		setTimeout("animateFade(" + new Date().getTime() + ",'" + "error" + "')", 300);
+	}  
+}
+
+function animateFade(lastTick)
+{  
+	var curTick = new Date().getTime();
+	var elapsedTicks = curTick - lastTick;
+
+	if(errorboard.FadeTimeLeft <= elapsedTicks)
+	{
+		errorboard.style.opacity = errorboard.FadeState == 1 ? '1' : '0';
+		errorboard.style.filter = 'alpha(opacity = ' 
+		    + (errorboard.FadeState == 1 ? '100' : '0') + ')';
+		errorboard.FadeState = errorboard.FadeState == 1 ? 2 : -2;
+		return;
+	}
+
+	errorboard.FadeTimeLeft -= elapsedTicks;
+	var newOpVal = errorboard.FadeTimeLeft/TimeToFade;
+	if(errorboard.FadeState == 1)
+		newOpVal = 1 - newOpVal;
+
+	errorboard.style.opacity = newOpVal;
+	errorboard.style.filter = 'alpha(opacity = ' + (newOpVal*100) + ')';
+
+	setTimeout("animateFade(" + curTick + ",'" + "error" + "')", 33);
 }
 
 function notAlready(answer) {
