@@ -2,6 +2,9 @@ var scoreboard = document.getElementById("score");
 var lastwordboard = document.getElementById("lastword");
 var countdownboard = document.getElementById("timer");
 var nextwordboard = document.getElementById("nextword");
+var gameover = document.getElementById("gameover");
+var finishedsentence = document.getElementById("finishedsentence");
+var playing = document.getElementById("playing");
 var lastword = "Last";
 var sentence = "";
 var score = 0;
@@ -10,6 +13,8 @@ var timeout = null;
 
 function youlose(){
 	nextwordboard.disabled = true;
+//	finishedsentence.innerHTML = sentence;
+	timeout = setTimeout('gameover.style.display = "block";', 500);
 }
 
 function countdown() {
@@ -29,6 +34,8 @@ function reset() {
 	nextwordboard.value = lastword.substr(lastword.length - 1, lastword.length);
 	timer = 10;
 	countdownboard.innerHTML = String(timer);
+	gameover.style.display = "none";
+	playing.style.display = "block";
 	timeout = setTimeout('countdown()', 1000);
 	nextwordboard.disabled = false;
 }
